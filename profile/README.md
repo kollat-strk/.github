@@ -207,7 +207,6 @@ Where:
 | **EVM Compatible** | Multi-chain liquidity aggregation |
 | **Flash-Loan Resistance** | Time-weighted checks prevent instant fund borrowing |
 | **Client-Side Privacy** | Private keys never leave user's local environment |
-| **Asset Whitelisting** | Only ETH, STRK, USDC etc. — prevents low-cap manipulation |
 
 ---
 
