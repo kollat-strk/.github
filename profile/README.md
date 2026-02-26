@@ -3,7 +3,6 @@
 **Privacy-Preserving Solvency Verification for Decentralized Finance**
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Starknet-Cairo-VM-blueviolet?style=for-the-badge" alt="Starknet" />
   <img src="https://img.shields.io/badge/Zero--Knowledge%20Proofs-STARKs-orange?style=for-the-badge" alt="ZK Proofs" />
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License" />
 </p>
