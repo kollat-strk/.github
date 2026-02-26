@@ -3,6 +3,7 @@
 **Privacy-Preserving Solvency Verification for Decentralized Finance**
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Starknet-Cairo-VM-blueviolet?style=for-the-badge" alt="Starknet" />
   <img src="https://img.shields.io/badge/Zero--Knowledge%20Proofs-STARKs-orange?style=for-the-badge" alt="ZK Proofs" />
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License" />
 </p>
@@ -53,48 +54,62 @@ This organization contains three interconnected repositories:
 
 | Repository | Description |
 |-----------|-------------|
-| [website](https://github.com/kollat-strk/website) | Frontend (Next.js) + Backend API (Hono) |
+| [website](https://github.com/kollat-strk/website) | Frontend (Next.js) — Landing page, wallet dashboard |
+| [server](https://github.com/kollat-strk/server) | Backend API (Hono) — Auth, wallet, identity endpoints |
 | [privacy-toolkit](https://github.com/kollat-strk/privacy-toolkit) | ZK Circuits (Noir) + Verifier Contracts (Cairo) |
-| zk-verifier *(planned)* | On-chain verifier contracts |
 
 ---
 
 ### 1. Website (`kollat-strk/website`)
 
-> The main web application — frontend and API server
+> The main web application — frontend only
 
 **Tech Stack:**
 - **Frontend:** Next.js 16, React 19, Tailwind CSS 4, Framer Motion
 - **Wallets:** @starknet-react/core (StarkNet), @rainbow-me/rainbowkit (EVM)
-- **Backend:** Hono, Drizzle ORM, SQLite
 
 **Features:**
 - Dual-wallet support (StarkNet + EVM)
 - Wallet binding with signature verification
 - Balance fetching via Rabby API (EVM) and Endur API (StarkNet)
-- Identity proof generation
+- Identity proof generation UI
 - Magic link authentication
+- Landing page with system documentation
 
 **Quick Start:**
 ```bash
-# Frontend
-npm install
-npm run dev
-
-# Backend
-cd server
 npm install
 npm run dev
 ```
 
+---
+
+### 2. Server (`kollat-strk/server`)
+
+> Backend API — handles authentication, wallet management, and identity proofs
+
+**Tech Stack:**
+- **Framework:** Hono (Fast web framework)
+- **Database:** Drizzle ORM + SQLite
+- **Blockchain:** Starknet.js, Viem
+
 **API Endpoints:**
-- `/api/auth/*` — Registration, login, logout, magic links
-- `/api/wallet/*` — Wallet binding, balance queries
-- `/api/identity/*` — Identity proof creation
+- `/api/auth/*` — Registration, login, logout, magic links, JWT sessions
+- `/api/wallet/*` — Wallet binding, list, primary wallet, balance queries (EVM + StarkNet)
+- `/api/identity/*` — Identity proof creation and retrieval
+
+**Quick Start:**
+```bash
+cd server
+npm install
+npm run dev
+# Server runs on http://localhost:4000
+# API docs available at /docs
+```
 
 ---
 
-### 2. Privacy Toolkit (`kollat-strk/privacy-toolkit`)
+### 3. Privacy Toolkit (`kollat-strk/privacy-toolkit`)
 
 > ZK Proof System — Noir circuits + Cairo verifier contracts
 
@@ -153,17 +168,6 @@ bun run dev
 
 ---
 
-### 3. On-Chain Verifier *(anned)*
-
-> Starknet smartPl contract for on-chain proof verification
-
-**Status:** Not yet implemented
-
-**Purpose:**
-Deploy a verifier contract on Starknet Sepolia/Mainnet that allows protocols to verify proofs on-chain without calling the API.
-
----
-
 ## Use Cases
 
 ### 1. Global Solvency DeFi Loans
@@ -204,7 +208,6 @@ Where:
 | **EVM Compatible** | Multi-chain liquidity aggregation |
 | **Flash-Loan Resistance** | Time-weighted checks prevent instant fund borrowing |
 | **Client-Side Privacy** | Private keys never leave user's local environment |
-| **Asset Whitelisting** | Only ETH, STRK, USDC etc. — prevents low-cap manipulation |
 
 ---
 
