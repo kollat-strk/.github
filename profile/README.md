@@ -123,10 +123,11 @@ Implements a **Balance Tier ZK Proof System** that allows users to prove their t
 | Component | Status |
 |-----------|--------|
 | Noir Circuit (balance_tier) | ✅ Working — Compiles, all 5 tests pass |
-| Verifier Contract | ✅ Compiles — Scarb 2.9.2 |
+| Verifier Contract | ✅ Deployed — Starknet Sepolia |
 | Proof API | ✅ Working — Port 3001 |
 | Account Deployment | ✅ Deployed — Starknet Sepolia |
-| Verifier Deployment | 🔄 Pending |
+
+**Verifier Contract:** `0x01eb1ec37365fd0ec6d95e9ed4a2e8a361f3734e7693ed8ebc5e7eae21324b25` — [View on Voyager](https://sepolia.voyager.online/contract/0x01eb1ec37365fd0ec6d95e9ed4a2e8a361f3734e7693ed8ebc5e7eae21324b25)
 
 **Architecture:**
 ```
